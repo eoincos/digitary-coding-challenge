@@ -5,6 +5,7 @@
 ```
 sbt flyway/flywayMigrate
 sbt slickCodegen
+```
 
 ##Start the Play app:
 
