@@ -1,13 +1,13 @@
 # Digitary Coding Challenge
 
-##Database Setup
+## Database Setup
 
 ```
 sbt flyway/flywayMigrate
 sbt slickCodegen
 ```
 
-##Start the Play app:
+## Start the Play app:
 
 ```
 sbt run
