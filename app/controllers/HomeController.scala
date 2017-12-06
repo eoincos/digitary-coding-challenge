@@ -2,7 +2,6 @@ package controllers
 
 import javax.inject.{Inject, Singleton}
 
-import models.User
 import com.example.user.UserDAO
 import play.api.data.Form
 import play.api.mvc._
@@ -40,10 +39,10 @@ class HomeController @Inject() (userDAO: UserDAO, cc: MessagesControllerComponen
         id = data.id,
         name = data.name,
         email = data.email,
-        addressLine1 = data.addressLine1,
-        addressLine2 = data.addressLine2,
-        townCity = data.townCity,
-        postalCode = data.postalCode,
+        addressline1 = data.addressline1,
+        addressline2 = data.addressline2,
+        towncity = data.towncity,
+        postalcode = data.postalcode,
         country = data.country,
         telephone1 = data.telephone1,
         telephone2 = data.telephone2,

@@ -22,11 +22,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: aopalliance:aopalliance:1.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.12.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.joda:joda-convert:1.8.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: joda-time:joda-time:2.9.9:jar" level="project" />
-    <orderEntry type="library" name="sbt: javax.inject:javax.inject:1:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.google.inject:guice:4.1.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.google.guava:guava:19.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.google.inject:guice:4.1.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: javax.inject:javax.inject:1:jar" level="project" />
+    <orderEntry type="library" name="sbt: joda-time:joda-time:2.9.9:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.joda:joda-convert:1.8.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.12.1:jar" level="project" />
   </component>
 </module>
