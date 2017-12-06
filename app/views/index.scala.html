@@ -1,0 +1,79 @@
+@(users: Seq[User], form: Form[UserForm.Data], postUrl: Call)(implicit request: MessagesRequestHeader)
+
+  @main("Digitary Coding Challenge") {
+
+    <div class="container">
+      <h1>Users</h1>
+
+      @* Flash shows updates to a page *@
+      @request.flash.data.map{ case (name, value) =>
+        <div>@name: @value</div>
+      }
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>AddressLine1</th>
+            <th>AddressLine2</th>
+            <th>TownCity</th>
+            <th>PostalCode</th>
+            <th>Country</th>
+            <th>Telephone1</th>
+            <th>Telephone2</th>
+            <th>Telephone3</th>
+          </tr>
+        </thead>
+        <tbody>
+        @for(user <- users) {
+          <tr>
+            <td>@user.id</td>
+            <td>@user.name</td>
+            <td>@user.email</td>
+            <td>@user.addressLine1</td>
+            <td>@user.addressLine2</td>
+            <td>@user.townCity</td>
+            <td>@user.postalCode</td>
+            <td>@user.country</td>
+            <td>@user.telephone1</td>
+            <td>@user.telephone2</td>
+            <td>@user.telephone3</td>
+          </tr>
+        }
+        </tbody>
+      </table>
+
+      <hr/>
+
+      @* Global errors are not tied to any particular form field *@
+      @if(form.hasGlobalErrors) {
+        @form.globalErrors.map { error: FormError =>
+          <div>
+            @error.key: @error.message
+          </div>
+        }
+      }
+
+      <div class="form-group">
+        @helper.form(postUrl) {
+          @helper.CSRF.formField
+
+          @helper.inputText(form("id"), 'class -> "form-control")
+          @helper.inputText(form("name"), 'class -> "form-control")
+          @helper.inputText(form("email"), 'class -> "form-control")
+          @helper.inputText(form("addressLine1"), 'class -> "form-control")
+          @helper.inputText(form("addressLine2"), 'class -> "form-control")
+          @helper.inputText(form("townCity"), 'class -> "form-control")
+          @helper.inputText(form("postalCode"), 'class -> "form-control")
+          @helper.inputText(form("country"), 'class -> "form-control")
+          @helper.inputText(form("telephone1"), 'class -> "form-control")
+          @helper.inputText(form("telephone2"), 'class -> "form-control")
+          @helper.inputText(form("telephone3"), 'class -> "form-control")
+
+          <button class="btn primary">Create User</button>
+        }
+      </div>
+    </div>
+  }
