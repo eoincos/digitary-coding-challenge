@@ -8,4 +8,4 @@ project/project/
 project/target/
 modules/*/target/
 
-test.mv.db
+test.*

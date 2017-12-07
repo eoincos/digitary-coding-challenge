@@ -2,7 +2,7 @@ package controllers
 
 import javax.inject.{Inject, Singleton}
 
-import com.example.user.UserDAO
+import com.example.user._
 import play.api.data.Form
 import play.api.mvc._
 
@@ -23,7 +23,7 @@ class HomeController @Inject() (userDAO: UserDAO, cc: MessagesControllerComponen
   }
 
   // This will be the action that handles our form post
-  def createUser = Action { implicit request: MessagesRequest[AnyContent] =>
+  def createUser = Action.async { implicit request =>
     val errorFunction = { formWithErrors: Form[Data] =>
       // This is the bad case, where the form had validation errors.
       // Let's show the user the form again, with the errors highlighted.
@@ -49,9 +49,11 @@ class HomeController @Inject() (userDAO: UserDAO, cc: MessagesControllerComponen
         telephone3 = data.telephone3
       )
 
-      userDAO.create(user)
-
-      Redirect(routes.HomeController.index()).flashing("info" -> "User added!")
+      userDAO.create(user).map { id =>
+        //Redirect(routes.HomeController.index()).flashing("info" -> ("User added!" + id))
+        //Ok("User added!")
+        Redirect(routes.HomeController.index())
+      }
     }
 
     val formValidationResult = form.bindFromRequest

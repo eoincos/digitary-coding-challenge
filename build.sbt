@@ -1,4 +1,4 @@
-name := """play-isolated-slick"""
+name := """digitary-coding-challenge"""
 
 version := "1.1-SNAPSHOT"
 
